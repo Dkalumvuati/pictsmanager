@@ -1,0 +1,5 @@
+docker/database/mysql/
+pictsmanager/node_modules/
+api/node_modules/
+.idea/
+.vscode/

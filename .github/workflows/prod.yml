@@ -1,0 +1,25 @@
+name: Build Container for Prod and Push to Dockerhub
+
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+jobs:
+  build-and-deploy-back:
+    name: Build and Deploy Back-End
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v1
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+          repository : EpitechMscProPromo2023/T-DEV-800-T-DEV-800_msc2023_group-21
+          dockerfile: EpitechMscProPromo2023/T-DEV-800-T-DEV-800_msc2023_group-21
+          tags: latest

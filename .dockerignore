@@ -1,0 +1,17 @@
+api/node_modules
+api/Dockerfile
+api/.dockerignore
+api/.gitignore
+api/.env.example
+api/.idea
+
+pictmanager/node_modules
+pictmanager/Dockerfile
+pictmanager/.dockerignore
+pictmanager/.gitignore
+pictmanager/.idea
+
+Dockerfile
+.gitignore
+.idea
+.dockerignore
