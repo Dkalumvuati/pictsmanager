@@ -1,0 +1,518 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Count Of Money",
+    "description": "A web platform about cryptocurrencies. Track your favorites cryptocurrencies, check the news, stay up to date.\n",
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    },
+    "version": "1.0.0"
+  },
+  "externalDocs": {
+    "description": "Find out more about Count of Money",
+    "url": "https://github.com/EpitechMscProPromo2023/T-WEB-700-T-WEB-700_msc2023_group-36"
+  },
+  "servers": [
+    {
+      "url": "https://virtserver.swaggerhub.com/Epitech479/Count_of_Money/1.0.0",
+      "description": "SwaggerHub API Auto Mocking"
+    },
+    {
+      "url": "http://localhost:9000",
+      "description": "Local Environment"
+    }
+  ],
+  "tags": [
+    {
+      "name": "cryptos",
+      "description": "Manage & find infos about cryptos"
+    },
+    {
+      "name": "articles",
+      "description": "Get articles about cryptos"
+    },
+    {
+      "name": "user",
+      "description": "User Management"
+    }
+  ],
+  "paths": {
+    "/cryptos": {
+      "get": {
+        "tags": [
+          "cryptos"
+        ],
+        "summary": "Get cryptos infos",
+        "parameters": [
+          {
+            "name": "cmids",
+            "in": "query",
+            "description": "Cryptocurrencies’ Ids",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "405": {
+            "description": "Invalid input"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "cryptos"
+        ],
+        "summary": "Add a cryptocurrency to the platform",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Crypto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "405": {
+            "description": "Invalid input"
+          }
+        }
+      }
+    },
+    "/cryptos/{cmid}": {
+      "get": {
+        "tags": [
+          "cryptos"
+        ],
+        "summary": "Get cryptos infos",
+        "parameters": [
+          {
+            "name": "cmid",
+            "in": "path",
+            "description": "Cryptocurrencies’ Id",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "405": {
+            "description": "Invalid input"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "cryptos"
+        ],
+        "summary": "Delete crypto from platform",
+        "parameters": [
+          {
+            "name": "cmid",
+            "in": "path",
+            "description": "Cryptocurrencies’ Id",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "405": {
+            "description": "Invalid input"
+          }
+        }
+      }
+    },
+    "/cryptos/{cmid}/history/{period}": {
+      "get": {
+        "tags": [
+          "cryptos"
+        ],
+        "summary": "Provides the price history of a cryptocurrency",
+        "parameters": [
+          {
+            "name": "cmid",
+            "in": "path",
+            "description": "Cryptocurrencies’ Id",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "period",
+            "in": "path",
+            "description": "Cryptocurrencies’ Id",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "daily",
+                  "hourly",
+                  "minute"
+                ]
+              }
+            }
+          }
+        ],
+        "responses": {
+          "405": {
+            "description": "Invalid input"
+          }
+        }
+      }
+    },
+    "/articles": {
+      "get": {
+        "tags": [
+          "articles"
+        ],
+        "summary": "Get articles about cryptos",
+        "parameters": [
+          {
+            "name": "keywords",
+            "in": "query",
+            "description": "keywords in order to filter the results",
+            "required": false,
+            "style": "form",
+            "explode": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "405": {
+            "description": "Invalid input"
+          }
+        }
+      }
+    },
+    "/articles/{id}": {
+      "get": {
+        "tags": [
+          "articles"
+        ],
+        "summary": "Get an article about cryptos",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id of the article",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "405": {
+            "description": "Invalid input"
+          }
+        }
+      }
+    },
+    "/user/profile": {
+      "get": {
+        "tags": [
+          "user"
+        ],
+        "summary": "Get user profile",
+        "responses": {
+          "405": {
+            "description": "Invalid input"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "user"
+        ],
+        "summary": "Update user profile",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/User"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "405": {
+            "description": "Invalid input"
+          }
+        }
+      }
+    },
+    "/user/logout": {
+      "post": {
+        "tags": [
+          "user"
+        ],
+        "summary": "Logout the user",
+        "responses": {
+          "405": {
+            "description": "Invalid input"
+          }
+        }
+      }
+    },
+    "/user/login": {
+      "post": {
+        "tags": [
+          "user"
+        ],
+        "summary": "Login the user with basic username/password",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/user_login_body"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "405": {
+            "description": "Invalid input"
+          }
+        }
+      }
+    },
+    "/user/register": {
+      "post": {
+        "tags": [
+          "user"
+        ],
+        "summary": "Register new user",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/User"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "405": {
+            "description": "Invalid input"
+          }
+        }
+      }
+    },
+    "/user/auth/{provider}": {
+      "get": {
+        "tags": [
+          "user"
+        ],
+        "summary": "Provide Oauth2 authentication",
+        "parameters": [
+          {
+            "name": "provider",
+            "in": "path",
+            "description": "Provider",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string",
+              "default": "google",
+              "enum": [
+                "google",
+                "facebook",
+                "twitter"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "405": {
+            "description": "Invalid input"
+          }
+        }
+      }
+    },
+    "/user/auth/{provider}/callback": {
+      "get": {
+        "tags": [
+          "user"
+        ],
+        "summary": "On this route we canretrieve user’s information transmitted by the third party service",
+        "parameters": [
+          {
+            "name": "provider",
+            "in": "path",
+            "description": "Provider",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string",
+              "default": "google",
+              "enum": [
+                "google",
+                "facebook",
+                "twitter"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "405": {
+            "description": "Invalid input"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Crypto": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "picture_url": {
+            "type": "string"
+          },
+          "current_price": {
+            "type": "number",
+            "format": "float"
+          },
+          "lower_price": {
+            "type": "number",
+            "format": "float"
+          },
+          "higher_price": {
+            "type": "number",
+            "format": "float"
+          }
+        }
+      },
+      "User": {
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "auth_id": {
+            "type": "string"
+          },
+          "subscribed_at": {
+            "type": "string"
+          },
+          "updated_at": {
+            "type": "string"
+          },
+          "is_verified": {
+            "type": "boolean"
+          },
+          "role": {
+            "type": "string",
+            "default": "ROLE_USER",
+            "enum": [
+              "ROLE_ADMIN",
+              "ROLE_USER"
+            ]
+          },
+          "articles": {
+            "type": "array",
+            "items": {
+              "type": "integer"
+            }
+          },
+          "crypto_currencies": {
+            "type": "array",
+            "items": {
+              "type": "integer"
+            }
+          }
+        }
+      },
+      "Article": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "summary": {
+            "type": "string"
+          },
+          "source": {
+            "type": "string"
+          },
+          "visible": {
+            "type": "boolean"
+          },
+          "created_at": {
+            "type": "string"
+          },
+          "updated_at": {
+            "type": "string"
+          },
+          "article_url": {
+            "type": "string"
+          },
+          "image_url": {
+            "type": "string"
+          },
+          "keywords": {
+            "type": "string"
+          },
+          "author": {
+            "type": "integer"
+          }
+        }
+      },
+      "user_login_body": {
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

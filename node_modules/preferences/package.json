@@ -1,0 +1,31 @@
+{
+  "name": "preferences",
+  "version": "1.0.2",
+  "description": "Manage CLI application encrypted preferences.",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CaffeinaLab/preferences.git"
+  },
+  "keywords": [
+    "config",
+    "cli",
+    "preferences",
+    "encrypted",
+    "secure"
+  ],
+  "author": "Stefano Azzolini <stefano.azzolini@caffeina.it> (http://caffeina.it)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/CaffeinaLab/preferences/issues"
+  },
+  "homepage": "https://github.com/CaffeinaLab/preferences#readme",
+  "dependencies": {
+    "graceful-fs": "^4.1.2",
+    "js-yaml": "^3.10.0",
+    "mkdirp": "^0.5.1",
+    "os-homedir": "^1.0.1",
+    "write-file-atomic": "^1.1.3"
+  }
+}

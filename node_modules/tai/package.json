@@ -1,0 +1,39 @@
+{
+  "name": "tai",
+  "version": "3.0.0",
+  "description": "a tool for managing student assignment repos",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "mocha",
+    "test:watch": "mocha -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alchemycodelab/tai.git"
+  },
+  "bin": {
+    "tai": "./index.js"
+  },
+  "author": "Marty Nelson <marty@martypdx.com> (@martypdx)",
+  "contributors": [
+    "Annika Hagelin <hagelin.annika@gmail.com> (http://ankihg.herokuapp.com/)",
+    "David Goodwin <goodwid@gmail.com> (@goodwid)"
+  ],
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alchemycodelab/tai/issues"
+  },
+  "homepage": "https://github.com/alchemycodelab/tai#readme",
+  "dependencies": {
+    "chalk": "^2.4.1",
+    "commander": "^2.19.0",
+    "fs-extra": "^7.0.0",
+    "github-api": "^3.0.0",
+    "preferences": "^1.0.2"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^5.2.0"
+  }
+}

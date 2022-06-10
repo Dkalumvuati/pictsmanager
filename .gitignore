@@ -1,4 +1,4 @@
-docker/database/mysql/
+../docker/database/mysql/
 pictsmanager/node_modules/
 api/node_modules/
 .idea/
