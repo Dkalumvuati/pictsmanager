@@ -22,5 +22,4 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
           repository: Dkalumvuati/pictsmanager
           dockerfile: duramana/pictsmanager
-          registry: docker.io
           tags: latest
