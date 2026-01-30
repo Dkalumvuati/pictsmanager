@@ -2,14 +2,13 @@
 
 import { Model } from 'sequelize';
 module.exports = (sequelize: any, DataTypes: any) => {
-
   interface AlbumAttributes {
     id: number;
     name:string;
     can_be_shared:boolean;
     description:string;
   }
-
+  
   class Album extends Model <AlbumAttributes> implements AlbumAttributes {
     id!: number;
     name!: string;
