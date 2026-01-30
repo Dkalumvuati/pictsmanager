@@ -2,7 +2,6 @@
 
 import { Model } from 'sequelize';
 module.exports = (sequelize: any, DataTypes: any) => {
-
   interface AlbumAttributes {
     id: number;
     name:string;
